@@ -10,7 +10,7 @@ from datetime import datetime
 # Параметры подключения берем из secrets.toml (или из "Secrets" на Streamlit Cloud).
 # В публичном репо не храним пароли БД!
 
-@st.singleton
+@st.cache_resource
 def get_connection():
     conn = psycopg2.connect(
         host=st.secrets["postgres"]["host"],
